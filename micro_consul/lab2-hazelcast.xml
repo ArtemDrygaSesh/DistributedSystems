@@ -27,6 +27,10 @@
         <time-to-live-seconds>0</time-to-live-seconds>
         <max-idle-seconds>0</max-idle-seconds>
     </map>
-
+	
+	<!-- Налаштування Bounded queue -->
+    <queue name="bounded-queue">
+    <max-size>10</max-size>
+	</queue>
 	
 </hazelcast>

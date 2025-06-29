@@ -2,12 +2,12 @@ version: "3.2"
 services:
   # Hazelcast Node 1
   hazelcast-node1:
-    container_name: 'lab3-node1'
+    container_name: 'lab4-node1'
     image: 'hazelcast/hazelcast:5.4.0'
     network_mode: 'hazelcast-network'
     environment:
       - HZ_NETWORK_PUBLICADDRESS=192.168.31.88:5701
-      - HZ_CLUSTERNAME=lab3
+      - HZ_CLUSTERNAME=lab4
       - HAZELCAST_CONFIG=/opt/hazelcast/lab2-hazelcast.xml
     volumes:
       - ./lab2-hazelcast.xml:/opt/hazelcast/lab2-hazelcast.xml
@@ -16,12 +16,12 @@ services:
 
   # Hazelcast Node 2
   hazelcast-node2:
-    container_name: 'lab3-node2'
+    container_name: 'lab4-node2'
     image: 'hazelcast/hazelcast:5.4.0'
     network_mode: 'hazelcast-network'
     environment:
       - HZ_NETWORK_PUBLICADDRESS=192.168.31.88:5702
-      - HZ_CLUSTERNAME=lab3
+      - HZ_CLUSTERNAME=lab4
       - HAZELCAST_CONFIG=/opt/hazelcast/lab2-hazelcast.xml
     volumes:
       - ./lab2-hazelcast.xml:/opt/hazelcast/lab2-hazelcast.xml
@@ -30,12 +30,12 @@ services:
 
   # Hazelcast Node 3
   hazelcast-node3:
-    container_name: 'lab3-node3'
+    container_name: 'lab4-node3'
     image: 'hazelcast/hazelcast:5.4.0'
     network_mode: 'hazelcast-network'
     environment:
       - HZ_NETWORK_PUBLICADDRESS=192.168.31.88:5703
-      - HZ_CLUSTERNAME=lab3
+      - HZ_CLUSTERNAME=lab4
       - HAZELCAST_CONFIG=/opt/hazelcast/lab2-hazelcast.xml
     volumes:
       - ./lab2-hazelcast.xml:/opt/hazelcast/lab2-hazelcast.xml
@@ -44,7 +44,7 @@ services:
 
   # Management Center
   hazelcast-management:
-    container_name: 'lab3-management-center'
+    container_name: 'lab4-management-center'
     image: 'hazelcast/management-center:5.4.0'
     network_mode: 'hazelcast-network'
     depends_on:

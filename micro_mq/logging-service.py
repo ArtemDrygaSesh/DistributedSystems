@@ -10,7 +10,7 @@ args = parser.parse_args()
 
 app = Flask(__name__)
 
-containers = ['lab2-node1', 'lab2-node2', 'lab2-node3', 'lab2-management-center']
+containers = ['lab4-node1', 'lab4-node2', 'lab4-node3', 'lab4-management-center']
 for c in containers[:-1]:
     if not check_container(c):
         os.system(f'docker start {c}')
@@ -19,8 +19,9 @@ for c in containers[:-1]:
 if not check_container(containers[-1]):
     os.system(f'docker start {containers[-1]}')
 
-hz = hazelcast.HazelcastClient(cluster_name='lab2')
+hz = hazelcast.HazelcastClient(cluster_name='lab4')
 msg = hz.get_map('messages').blocking()
+
 
 @app.route('/', methods=['POST', 'GET'])
 def home():
@@ -46,4 +47,4 @@ try:
     while True: pass
 except KeyboardInterrupt:
     hz.shutdown()
-    os.system(f'Docker stop {container}')
+    os.system(f'docker stop {container}')
